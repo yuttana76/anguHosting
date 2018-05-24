@@ -1,44 +1,62 @@
-
 <!-- NAV -->
-    <nav class="navbar  navbar-expand-lg navbar-light navbar-default">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-            <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-right"> -->
-            <!-- <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"> -->
-            <ul class="navbar-nav flex-row "> 
+<nav class="navbar  navbar-expand-lg navbar-light navbar-default">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-wrapper collapse navbar-collapse " id="navbarTogglerDemo01">
+        <!-- Menu link -->
+        <div class="nav-one">
+            <ul class="navbar-nav flex-row ">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="about">About</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact">contact Us</a>
+                </li>
             </ul>
-
-            <div class="relative">
-                <a class="navbar-brand" href="#">{{companyName}}</a>
-            </div>
-
         </div>
-    </nav>
+
+        <!-- Logo -->
+        <div class="relative nav-two">
+            <a class="navbar-brand" href="#">{{companyName}}</a>
+        </div>
+        <!-- App Menu -->
+        <div class="nav-three">
+            <ul class="navbar-nav ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Apps.
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">App1</a>
+                        <a class="dropdown-item" href="#">App2</a>
+                        <a class="dropdown-item" href="#">App3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
 
 <!-- CONTAINT -->
-        <!-- <p>{{this.router.url}}</p> -->
-        <router-outlet></router-outlet>
+<!-- <p>{{this.router.url}}</p> -->
+<router-outlet></router-outlet>
 
 
 <!-- FOOTER -->
-    <div class="wrapper footer">
-            <div class="footer-social">
-                <a href="{{fa_fb}}" class="fa fa-facebook" target="_blink"></a>
-                <a href="{{fa_tw}}" class="fa fa-twitter" target="_blink"></a>
-                <a href="{{fa_gl}}" class="fa fa-google" target="_blink"></a>
-                <a href="{{fa_li}}" class="fa fa-linkedin" target="_blink"></a>
-            </div>
-            <div>
-                    <p>{{footerMSG}}</p>
-            </div>
+<div class="wrapper footer">
+    <div class="footer-social">
+        <a href="{{fa_fb}}" class="fa fa-facebook" target="_blink"></a>
+        <a href="{{fa_tw}}" class="fa fa-twitter" target="_blink"></a>
+        <a href="{{fa_gl}}" class="fa fa-google" target="_blink"></a>
+        <a href="{{fa_li}}" class="fa fa-linkedin" target="_blink"></a>
     </div>
+    <div>
+        <p>{{footerMSG}}</p>
+    </div>
+</div>

@@ -4,12 +4,26 @@ body {
     font-weight: 300;
 }
 
+/* @media (min-width: 768px) { 
+    div.relative {
+        position: relative;
+        left: 400px;
+        
+    }
+} */
+@media (min-width: 768px) { 
+.nav-wrapper {
+    display: grid !important;
+    grid-template-columns: 3fr 2fr 1fr;
+  }
+ 
+}
+
 /* navbar */
 @media (min-width: 768px) { 
     .navbar-brand{
-        /* font-weight: 500; */
         visibility: visible;
-        font-size: 40px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 300;
         line-height: 1.10909;
@@ -28,7 +42,7 @@ body {
 }
 .nav-item{
     letter-spacing: 3px;
-    font-size: 16px;
+    font-size: 12px;
     text-transform: uppercase;
 }
 
@@ -37,26 +51,13 @@ body {
     font-weight: 300;
 }
 
-@media (min-width: 768px) { 
-    div.relative {
-        position: relative;
-        left: 400px;
-        
-    }
+.dropdown-menu a{
+    color: #1976d2;
+    font-family: inherit;
+    font-size: 12px;
 }
-/* @media (min-width: 768px) { 
-    .navbar-nav {
-        float:none;
-        margin:0 auto;
-        display: block;
-        text-align: center;
-    }
 
-    .navbar-nav > li {
-        display: inline-block;
-        float:none;
-    }
-} */
+
 
 .footer {
     position: fixed;
