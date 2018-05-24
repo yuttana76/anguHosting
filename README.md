@@ -29,3 +29,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Local source
 Users/macbookair/Projects/AngularFirebase/anguHosting
+
+
+## Firebase Hosting
+https://demohosting-b2bdf.firebaseapp.com/
+
+## godaddy 
+www.kmltech.xyz
