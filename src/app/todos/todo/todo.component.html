@@ -1,0 +1,29 @@
+<form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="todoService.selectedTodo.$key">
+  
+    <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="todoService.selectedTodo.description" placeholder="Full Name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <input class="form-control" name="location" #location="ngModel" [(ngModel)]="todoService.selectedTodo.location" placeholder="Position">
+  </div>
+
+  <div class="form-group">
+    <label>Due Date</label>
+    <div class="input-group">
+      <input class="form-control" name="dueDate" type="date" #dueDate="ngModel" [(ngModel)]="todoService.selectedTodo.dueDate" placeholder="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!todoForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(todoForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+</form>
