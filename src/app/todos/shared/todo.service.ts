@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 
 import { Todo } from './todo.model';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ import { Todo } from './todo.model';
 export class TodoService {
   todoList: AngularFireList<any>;
   selectedTodo: Todo = new Todo();
-  constructor(private firebase: AngularFireDatabase) { }
+
+  constructor(private firebase: AngularFireDatabase, public datepipe: DatePipe) { }
 
   getData() {
     this.todoList = this.firebase.list('TODO');
@@ -19,24 +21,27 @@ export class TodoService {
 
   insertTodo(todo: Todo) {
     // console.log(JSON.stringify(todo));
+    const duDate = this.datepipe.transform(new Date(todo.dueDate), 'yyyy-MM-dd');
+
     this.todoList.push({
       description: todo.description,
       location: todo.location,
-      dueDate: todo.dueDate,
+      dueDate: duDate,
       status: todo.status,
-      createDate: Date.now(),
-      updateDate: Date.now()
-
+      // createDate: this.firebase.database.app.
+      createDate: todo.dueDate,
     });
   }
 
   updateTodo(todo: Todo) {
-    console.log(JSON.stringify(todo));
+    // console.log(JSON.stringify(todo));
+    const duDate = this.datepipe.transform(new Date(todo.dueDate), 'yyyy-MM-dd');
+
     this.todoList.update(todo.$key,
       {
         description: todo.description,
         location: todo.location,
-        dueDate: todo.dueDate,
+        dueDate: duDate,
         status: todo.status,
         updateDate: Date.now()
       });

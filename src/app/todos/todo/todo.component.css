@@ -1,9 +1,8 @@
-.todo-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .todo-container > * {
-    width: 100%;
-  }
-  
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}

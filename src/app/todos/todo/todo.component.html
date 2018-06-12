@@ -1,35 +1,5 @@
-<!-- <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
-    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="todoService.selectedTodo.$key">
-  
-    <div class="form-group">
-    <label>Description</label>
-    <input class="form-control" name="description" #description="ngModel" [(ngModel)]="todoService.selectedTodo.description" placeholder="Full Name" required>
-  </div>
+<div class="example-container">
 
-  <div class="form-group">
-    <label>Location</label>
-    <input class="form-control" name="location" #location="ngModel" [(ngModel)]="todoService.selectedTodo.location" placeholder="Position">
-  </div>
-
-  <div class="form-group">
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Due Date" name="dueDate" #dueDate="ngModel" [(ngModel)]="todoService.selectedTodo.dueDate">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
-
-  <div class="form-group">
-    <button class="btn btn-default" type="submit" [disabled]="!todoForm.valid">
-      <i class="fa fa-floppy-o"></i>
-       Submit</button>
-    <button class="btn btn-default" type="button" (click)="resetForm(todoForm)">
-      <i class="fa fa-repeat"></i>
-       Reset</button>
-  </div>
-</form> -->
-<div class="todo-container">
-  
 <form name="form"  (ngSubmit)="todoForm.form.valid && onSubmit(todoForm)" #todoForm="ngForm" novalidate>
 
     <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="todoService.selectedTodo.$key">

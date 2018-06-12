@@ -18,6 +18,8 @@ import { TodoComponent } from './todos/todo/todo.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { ToastrModule } from 'ngx-toastr';
 
+import { DatePipe } from '@angular/common';
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -119,7 +121,7 @@ export class MyOwnCustomMaterialModule {}
     AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],
-  providers: [AngularFireDatabaseModule],
+  providers: [AngularFireDatabaseModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
