@@ -1,4 +1,4 @@
-<form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+<!-- <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
     <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="todoService.selectedTodo.$key">
   
     <div class="form-group">
@@ -12,9 +12,74 @@
   </div>
 
   <div class="form-group">
-    <label>Due Date</label>
-    <div class="input-group">
-      <input class="form-control" name="dueDate" type="date" #dueDate="ngModel" [(ngModel)]="todoService.selectedTodo.dueDate" placeholder="">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Due Date" name="dueDate" #dueDate="ngModel" [(ngModel)]="todoService.selectedTodo.dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!todoForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(todoForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+</form> -->
+<div class="todo-container">
+  
+<form name="form"  (ngSubmit)="todoForm.form.valid && onSubmit(todoForm)" #todoForm="ngForm" novalidate>
+
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="todoService.selectedTodo.$key">
+    
+  <div class="form-group">
+  <mat-form-field>
+      <input matInput placeholder="Description" name="description" #description="ngModel" [(ngModel)]="todoService.selectedTodo.description" 
+      [ngClass]="{ 'is-invalid': todoForm.submitted && description.invalid }" required >
+    </mat-form-field>
+    
+    <div *ngIf="todoForm.submitted && description.invalid" class="invalid-feedback">
+        <div *ngIf="description.errors.required">description is required</div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+  <mat-form-field>
+      <input matInput placeholder="Location" name="location" #location="ngModel" [(ngModel)]="todoService.selectedTodo.location" 
+      [ngClass]="{ 'is-invalid': todoForm.submitted && location.invalid }" required >
+    </mat-form-field>
+    <div *ngIf="todoForm.submitted && location.invalid" class="invalid-feedback">
+        <div *ngIf="location.errors.required">location is required</div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Due Date" name="dueDate" #dueDate="ngModel" [(ngModel)]="todoService.selectedTodo.dueDate" 
+    [ngClass]="{ 'is-invalid': todoForm.submitted && dueDate.invalid }" required >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+   <div *ngIf="todoForm.submitted && location.invalid" class="invalid-feedback">
+      <div *ngIf="dueDate.errors.required">Due Date is required</div>
+  </div>
+  </div>
+
+  <div class="form-group">
+  <mat-form-field>
+      <mat-select placeholder="Status" name="status" #status="ngModel" [(ngModel)]="todoService.selectedTodo.status" 
+      [ngClass]="{ 'is-invalid': todoForm.submitted && status.invalid }" required>
+        <mat-option *ngFor="let status of todoStatus" [value]="status.value">
+          {{ status.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="todoForm.submitted && status.invalid" class="invalid-feedback">
+        <div *ngIf="status.errors.required">Due Date is required</div>
     </div>
   </div>
 
@@ -26,4 +91,5 @@
       <i class="fa fa-repeat"></i>
        Reset</button>
   </div>
-</form>
+</form> 
+</div>

@@ -3,4 +3,7 @@ export class Todo {
     description: string;
     location: string;
     dueDate: Date;
+    status: string;
+    createDate: Date;
+    updateDate: Date;
 }

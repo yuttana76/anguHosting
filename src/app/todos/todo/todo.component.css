@@ -1,0 +1,9 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .todo-container > * {
+    width: 100%;
+  }
+  

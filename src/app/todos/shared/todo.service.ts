@@ -22,16 +22,23 @@ export class TodoService {
     this.todoList.push({
       description: todo.description,
       location: todo.location,
-      dueDate: todo.dueDate
+      dueDate: todo.dueDate,
+      status: todo.status,
+      createDate: Date.now(),
+      updateDate: Date.now()
+
     });
   }
-  
+
   updateTodo(todo: Todo) {
+    console.log(JSON.stringify(todo));
     this.todoList.update(todo.$key,
       {
         description: todo.description,
         location: todo.location,
-        dueDate: todo.dueDate
+        dueDate: todo.dueDate,
+        status: todo.status,
+        updateDate: Date.now()
       });
   }
 
