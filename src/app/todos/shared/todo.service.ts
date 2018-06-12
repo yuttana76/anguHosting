@@ -21,15 +21,15 @@ export class TodoService {
 
   insertTodo(todo: Todo) {
     // console.log(JSON.stringify(todo));
-    const duDate = this.datepipe.transform(new Date(todo.dueDate), 'yyyy-MM-dd');
+    const dueDate = this.datepipe.transform(new Date(todo.dueDate), 'yyyy-MM-dd');
 
     this.todoList.push({
       description: todo.description,
       location: todo.location,
-      dueDate: duDate,
+      dueDate: dueDate,
       status: todo.status,
       // createDate: this.firebase.database.app.
-      createDate: todo.dueDate,
+      createDate: Date.now()
     });
   }
 
