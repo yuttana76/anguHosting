@@ -37,8 +37,8 @@ export class TodoListComponent implements OnInit {
 
         this.dataSource = new MatTableDataSource<Todo>(this.todoList);
         this.dataSource.paginator = this.paginator;
-        this.loading = false;
       });
+      this.loading = false;
     });
 
   }

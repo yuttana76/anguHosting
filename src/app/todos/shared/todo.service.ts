@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
-
 import { Todo } from './todo.model';
 import { DatePipe } from '@angular/common';
 
@@ -30,7 +29,8 @@ export class TodoService {
       status: todo.status,
       // createDate: this.firebase.database.app.
       createDate: Date.now()
-    });
+    }
+  );
   }
 
   updateTodo(todo: Todo) {

@@ -12,6 +12,8 @@ import { NgForm } from '@angular/forms';
 })
 export class TodoComponent implements OnInit {
 
+  public loading = false;
+
   todoStatus = [
     {value: 'Todo', viewValue: 'Todo'},
     {value: 'Progress', viewValue: 'Progress'},
