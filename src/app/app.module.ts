@@ -19,7 +19,7 @@ import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { ToastrModule } from 'ngx-toastr';
 
 import { DatePipe } from '@angular/common';
-
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -119,7 +119,17 @@ export class MyOwnCustomMaterialModule {}
     ROUTING,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    LoadingModule.forRoot({
+      animationType: ANIMATION_TYPES.cubeGrid,
+      // animationType: ANIMATION_TYPES.rotatingPlane,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '10px',
+      primaryColour: '#e57c20',
+      secondaryColour: '#ffffff',
+      tertiaryColour: '#ffffff',
+      fullScreenBackdrop: false
+  })
   ],
   providers: [AngularFireDatabaseModule, DatePipe],
   bootstrap: [AppComponent]

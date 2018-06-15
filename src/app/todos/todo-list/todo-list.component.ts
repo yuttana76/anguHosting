@@ -14,6 +14,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 export class TodoListComponent implements OnInit {
 
+  public loading = false;
   todoList: Todo[];
 
   displayedColumns = [ 'description', 'location', 'status', 'dueDate', 'select'];
@@ -23,7 +24,10 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoService, private tostr: ToastrService) { }
 
   ngOnInit() {
+
+    this.loading = true;
     const x = this.todoService.getData();
+
     x.snapshotChanges().subscribe(item => {
       this.todoList = [];
       item.forEach(element => {
@@ -33,6 +37,7 @@ export class TodoListComponent implements OnInit {
 
         this.dataSource = new MatTableDataSource<Todo>(this.todoList);
         this.dataSource.paginator = this.paginator;
+        this.loading = false;
       });
     });
 
